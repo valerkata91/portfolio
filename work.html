@@ -31,8 +31,8 @@
     box-sizing:border-box;
   }
 
-  /* SAME layered background as index */
- html, body {
+  /* your current background setup */
+  html, body {
     height: 100%;
     margin: 0;
     overflow-x: hidden;
@@ -89,15 +89,25 @@
     font-size:14px;
   }
 
-  /* Filter chips */
+  /* Filter chips — NOW HORIZONTAL SCROLL */
   .filters{
     display:flex;
     gap:10px;
-    flex-wrap:wrap;
     align-items:center;
+    flex-wrap:nowrap;               /* keep on one line */
+    overflow-x:auto;                /* allow horizontal scroll */
+    overflow-y:hidden;
+    -webkit-overflow-scrolling:touch;
+    padding-bottom:4px;             /* space for hidden scrollbar */
+    scroll-snap-type:x proximity;   /* nice snap when scrolling */
   }
+  /* Hide scrollbar (WebKit + Firefox) */
+  .filters::-webkit-scrollbar{ display:none; }
+  .filters{ scrollbar-width:none; }
 
   .chip{
+    flex:0 0 auto;                  /* prevent shrinking so they scroll */
+    scroll-snap-align:start;
     font-size:14px;
     padding:8px 14px;
     border-radius:999px;
@@ -106,6 +116,7 @@
     color:#111;
     cursor:pointer;
     user-select:none;
+    white-space:nowrap;             /* keep label on one line */
   }
   .chip.is-active{
     background:#111;
@@ -121,8 +132,12 @@
     grid-template-columns:repeat(3, minmax(0,1fr));
     margin-top:10px;
   }
-  @media (max-width:1024px){ .grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
-  @media (max-width:640px){ .grid{ grid-template-columns:1fr; } }
+  @media (max-width:1024px){
+    .grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  }
+  @media (max-width:640px){
+    .grid{ grid-template-columns:1fr; }
+  }
 
   /* Cards */
   .card{
@@ -159,11 +174,12 @@
         <a class="contact" href="mailto:valeriia@example.com">Contact me</a>
       </div>
 
-      <div class="filters" id="filters">
+      <div class="filters" id="filters" aria-label="Project categories">
         <button class="chip is-active" data-filter="all">All</button>
         <button class="chip" data-filter="gambling"><span class="emoji">🎰</span>Gambling</button>
         <button class="chip" data-filter="fintech"><span class="emoji">🪙</span>Fintech</button>
         <button class="chip" data-filter="sport"><span class="emoji">⚽</span>Sport</button>
+        <!-- add more chips freely; they'll scroll horizontally -->
       </div>
     </div>
 
@@ -265,4 +281,3 @@
   </script>
 </body>
 </html>
-
