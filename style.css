@@ -148,3 +148,132 @@ body {
 .project-card.highlight {
   border: 2px solid #9c27b0; /* purple highlight */
 }
+
+/* Projects grid */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* Project card */
+.project-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 20px; /* Increased padding */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+}
+.project-card img {
+  width: 100%;
+  margin-top: 15px; /* Increased margin */
+  border-radius: 8px;
+}
+.project-card.highlight {
+  border: 2px solid #9c27b0; /* purple highlight */
+}
+
+/* Project card titles */
+.project-card .project-title {
+  font-family: 'SF Pro Display', sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.0;
+  margin: 0; /* Remove default margin */
+}
+
+/* Project card descriptions */
+.project-card .project-desc {
+  font-family: 'SF Pro Display', sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.0;
+  color: #888; /* Muted color for the description */
+  margin-top: 5px; /* Small space between title and description */
+}
+
+/* Project card */
+.project-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s ease; /* Add a smooth transition */
+}
+
+/* Hover effect for the project card */
+.project-card:hover {
+  border: 2px solid #9c27b0; /* Purple border on hover */
+  cursor: pointer; /* Change cursor to a pointer to indicate it's clickable */
+}
+
+.project-card.highlight {
+  border: 2px solid #9c27b0; /* Keep the initial purple highlight for the 'Magic Wheel' card */
+}
+
+.project-card img {
+  width: 100%;
+  margin-top: 15px;
+  border-radius: 8px;
+}
+
+/* Make project cards clickable without link styling */
+.project-card {
+  text-decoration: none;
+  color: inherit;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover effect for cards */
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.project-card img {
+  width: calc(100% + 30px); /* 30px = card padding left + right */
+  margin-left: -15px;
+  margin-right: -15px;
+  /* height: 180px; */
+  object-fit: cover;
+  border-radius: 0; /* remove radius if card already has rounded corners */
+}
+
+/* Project detail page */
+.project-detail {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.project-detail .project-title {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.project-detail .project-desc {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.project-detail .detail-img {
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 10px;
+}
