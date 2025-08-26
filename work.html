@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Valeriia — Work</title>
+
+<style>
+  :root{
+    --bg:#ffffff;
+    --ink:#0a0a0a;
+    --ink-2:#1d1d1f;
+    --muted:#6b7280;
+    --muted-2:#9ca3af;
+    --card:#ffffff;
+    --border:#e5e7eb;
+    --radius:22px;
+    --site-max:880px;
+
+    --bg-vector:url('img/background.webp');
+  }
+
+  /* Global font + reset */
+  *{
+    font-family:"SF Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    font-weight:400;
+    font-style:normal;
+    letter-spacing:0;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
+
+  /* SAME layered background as index */
+ html, body {
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: var(--bg);
+    background-image: var(--bg-vector);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-attachment: fixed;
+    color: var(--ink-2);
+    line-height: 1.45;
+  }
+
+  .wrap{
+    max-width:var(--site-max);
+    margin:24px auto 64px;
+    padding:0 24px;
+  }
+
+  /* Top stack */
+  .top{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-bottom:20px;
+  }
+
+  .top-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+
+  /* Back button with custom image */
+  .back{
+    width:36px;
+    height:36px;
+    border-radius:999px;
+    background:#fff url('img/arrow-work.jpg') center center no-repeat;
+    background-size:20px 15px;
+    border:1px solid var(--border);
+    display:block;
+    cursor:pointer;
+    text-decoration:none;
+  }
+
+  /* Contact button */
+  .contact{
+    background:#111;
+    color:#fff;
+    text-decoration:none;
+    border-radius:999px;
+    padding:10px 16px;
+    font-size:14px;
+  }
+
+  /* Filter chips */
+  .filters{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+
+  .chip{
+    font-size:14px;
+    padding:8px 14px;
+    border-radius:999px;
+    border:1px solid var(--border);
+    background:#fff;
+    color:#111;
+    cursor:pointer;
+    user-select:none;
+  }
+  .chip.is-active{
+    background:#111;
+    color:#fff;
+    border-color:#111;
+  }
+  .chip .emoji{ margin-right:6px; }
+
+  /* Grid */
+  .grid{
+    display:grid;
+    gap:28px;
+    grid-template-columns:repeat(3, minmax(0,1fr));
+    margin-top:10px;
+  }
+  @media (max-width:1024px){ .grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+  @media (max-width:640px){ .grid{ grid-template-columns:1fr; } }
+
+  /* Cards */
+  .card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    min-height:260px;
+  }
+  .card-head{ padding:18px 18px 0 18px; }
+  .card-title{ font-size:20px; color:#0a0a0a; margin-bottom:4px; }
+  .card-desc{ font-size:14px; color:#6b7280; margin-bottom:14px; }
+  .thumb{
+    width:100%;
+    aspect-ratio:16/9;
+    object-fit:cover;
+    display:block;
+    border-bottom-left-radius:var(--radius);
+    border-bottom-right-radius:var(--radius);
+  }
+
+  .hidden{ display:none !important; }
+</style>
+</head>
+<body>
+  <main class="wrap">
+
+    <!-- Top section -->
+    <div class="top">
+      <div class="top-row">
+        <a class="back" href="index.html" aria-label="Back"></a>
+        <a class="contact" href="mailto:valeriia@example.com">Contact me</a>
+      </div>
+
+      <div class="filters" id="filters">
+        <button class="chip is-active" data-filter="all">All</button>
+        <button class="chip" data-filter="gambling"><span class="emoji">🎰</span>Gambling</button>
+        <button class="chip" data-filter="fintech"><span class="emoji">🪙</span>Fintech</button>
+        <button class="chip" data-filter="sport"><span class="emoji">⚽</span>Sport</button>
+      </div>
+    </div>
+
+    <!-- Grid of work cards -->
+    <section class="grid" id="workGrid">
+
+      <article class="card" data-cat="gambling">
+        <div class="card-head">
+          <h3 class="card-title">Magic Wheel</h3>
+          <p class="card-desc">Casino-style wheel with color betting and multipliers</p>
+        </div>
+        <img class="thumb" src="img/magic-wheel.jpg" alt="Magic Wheel">
+      </article>
+
+      <article class="card" data-cat="gambling">
+        <div class="card-head">
+          <h3 class="card-title">Pyramids Hunter</h3>
+          <p class="card-desc">Egypt match-3 puzzle with goals, boosts</p>
+        </div>
+        <img class="thumb" src="img/pyramids-hunter.jpg" alt="Pyramids Hunter">
+      </article>
+
+      <article class="card" data-cat="gambling">
+        <div class="card-head">
+          <h3 class="card-title">Blackjack</h3>
+          <p class="card-desc">Blackjack with unique rooms, bonus spins, leveling</p>
+        </div>
+        <img class="thumb" src="img/blackjack.jpg" alt="Blackjack">
+      </article>
+
+      <article class="card" data-cat="casual">
+        <div class="card-head">
+          <h3 class="card-title">Dream Land</h3>
+          <p class="card-desc">Jungle drop puzzle with fruit combos</p>
+        </div>
+        <img class="thumb" src="img/dream-land.jpg" alt="Dream Land">
+      </article>
+
+      <article class="card" data-cat="casual">
+        <div class="card-head">
+          <h3 class="card-title">Candy Saga</h3>
+          <p class="card-desc">Candy match-3 puzzle, surprise rewards</p>
+        </div>
+        <img class="thumb" src="img/candy-saga.jpg" alt="Candy Saga">
+      </article>
+
+      <article class="card" data-cat="casual">
+        <div class="card-head">
+          <h3 class="card-title">Color Rush</h3>
+          <p class="card-desc">Fast color-matching puzzle, special items</p>
+        </div>
+        <img class="thumb" src="img/color-rush.jpg" alt="Color Rush">
+      </article>
+
+      <article class="card" data-cat="fintech">
+        <div class="card-head">
+          <h3 class="card-title">Plinko</h3>
+          <p class="card-desc">Casual Plinko game with real reward mechanics</p>
+        </div>
+        <img class="thumb" src="img/plinko.jpg" alt="Plinko">
+      </article>
+
+      <article class="card" data-cat="fintech">
+        <div class="card-head">
+          <h3 class="card-title">Ball Delux</h3>
+          <p class="card-desc">Plinko-style game with modes, bots, boosters</p>
+        </div>
+        <img class="thumb" src="img/ball-delux-1.jpg" alt="Ball Delux">
+      </article>
+
+      <article class="card" data-cat="sport">
+        <div class="card-head">
+          <h3 class="card-title">Ball Delux</h3>
+          <p class="card-desc">Plinko-style game with modes, bots, boosters</p>
+        </div>
+        <img class="thumb" src="img/ball-delux-2.jpg" alt="Ball Delux Variant">
+      </article>
+
+    </section>
+  </main>
+
+  <script>
+    // Filter logic for the chips
+    const chips = document.querySelectorAll('.chip');
+    const cards = document.querySelectorAll('.card');
+
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => c.classList.remove('is-active'));
+        chip.classList.add('is-active');
+
+        const filter = chip.dataset.filter;
+        cards.forEach(card => {
+          const cat = card.dataset.cat;
+          card.classList.toggle('hidden', !(filter === 'all' || cat === filter));
+        });
+      });
+    });
+  </script>
+</body>
+</html>
