@@ -1,36 +1,154 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Magic Wheel</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Magic Wheel — Work</title>
+
+<style>
+  :root {
+    --bg:#ffffff;
+    --ink:#0a0a0a;
+    --ink-2:#1d1d1f;
+    --border:#e5e7eb;
+    --site-max:880px;
+    --bg-vector:url('img/background.webp');
+  }
+
+  * {
+    font-family:"SF Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
+
+  html, body {
+    height:100%;
+    background:var(--bg);
+    background-image:var(--bg-vector);
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-attachment:fixed;
+    color:var(--ink-2);
+  }
+
+  /* Hero section with top and bottom rounded corners */
+  .hero {
+    position: relative;
+    margin-top: 0;
+    border-radius: 20px; /* Rounded corners for ALL sides */
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .hero img {
+    width: 100%;
+    display: block;
+  }
+
+  /* Overlay text */
+  .hero-text {
+    position: absolute;
+    top: 80px;
+    left: 24px;
+    color: #fff;
+    max-width: 80%;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  }
+
+  .hero-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+
+  /* Chip style */
+  .chip {
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-size:14px;
+    padding:1px 8px;
+    border-radius:999px;
+    border:1px solid var(--border);
+    background:#fff;
+    color:#111;
+  }
+
+  .chip img {
+    width:16px;
+    height:16px;
+  }
+
+  /* Top row overlay */
+  .top-row {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index: 2;
+  }
+
+  .back {
+    width:36px;
+    height:36px;
+    border-radius:999px;
+    background:#fff url('img/arrow-work.jpg') center center no-repeat;
+    background-size:20px 15px;
+    border:1px solid var(--border);
+    display:block;
+  }
+
+  .contact {
+    background:#111;
+    color:#fff;
+    text-decoration:none;
+    border-radius:999px;
+    padding:10px 16px;
+    font-size:14px;
+  }
+
+  /* Wrapper */
+  .wrap {
+    max-width:var(--site-max);
+    margin:0 auto;
+    padding:0 24px;
+  }
+</style>
 </head>
 <body>
-  <!-- Top bar -->
-  <div class="topbar">
-    <span>Magic Wheel</span>
-  </div>
 
-  <div class="container">
-    <!-- Contact button -->
-    <a href="mailto:youremail@example.com" class="contact-btn">Contact me</a>
+  <main class="wrap">
+    <!-- Hero section -->
+    <section class="hero">
+      <div class="top-row">
+        <a class="back" href="work.html" aria-label="Back"></a>
+        <a class="contact" href="mailto:valeriia@example.com">Contact me</a>
+      </div>
 
-    <!-- Back button -->
-    <a href="projects.html" class="back-btn">←</a>
+      <img src="img/magic-wheel-detail-clear.jpg" alt="Magic Wheel detail image">
 
-    <!-- Project detail -->
-    <div class="project-detail">
-      <h1 class="project-title">Magic Wheel</h1>
-      <p class="project-desc">
-        A casino-style wheel game featuring color-based betting mechanics,
-        where players predict the outcome segment, spin the wheel and receive
-        rewards according to the multiplier.
-      </p>
+      <div class="hero-text">
+        <h1 class="hero-title">Magic Wheel</h1>
+        <p class="hero-desc">
+          A casino-style wheel game featuring color-based betting mechanics, where players
+          predict the outcome segment, spin the wheel, and receive rewards according to the multiplier.
+        </p>
+        <span class="chip">
+          <img src="img/gambling.jpg" alt="Gambling"> Gambling
+        </span>
+      </div>
+    </section>
+  </main>
 
-      <!-- Image (same one you showed in screenshot) -->
-      <img src="img/magic-wheel-detail.png" alt="Magic Wheel Detail" class="detail-img">
-    </div>
-  </div>
 </body>
 </html>
