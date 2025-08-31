@@ -30,24 +30,28 @@
     background-size:contain;
     background-attachment:fixed;
     color:var(--ink-2);
-    -webkit-text-size-adjust:100%; /* за по-точно рендиране на iOS */
+    -webkit-text-size-adjust:100%;
   }
 
-  /* Hero section with top and bottom rounded corners */
+  /* Hero */
   .hero {
     position: relative;
     margin-top: 0;
-    border-radius: 20px; /* Rounded corners for ALL sides */
+    border-radius: 20px;
     overflow: hidden;
     border: 1px solid var(--border);
   }
 
-  .hero img {
+  .hero-img {
     width: 100%;
     display: block;
   }
 
-  /* Overlay text container */
+  .hero-img--mobile {
+    display: none;
+  }
+
+  /* Text block */
   .hero-text {
     position: absolute;
     top: 80px;
@@ -59,31 +63,23 @@
     text-rendering: optimizeLegibility;
   }
 
-  /* Title text */
   .hero-title {
-    font-family: "SF Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
     font-weight: 600;
-    font-style: normal;
     font-size: 28px;
     line-height: 120%;
-    letter-spacing: 0;
     margin: 0 0 8px;
     color: #FFFFFF;
   }
 
-  /* Description text */
   .hero-desc {
-    font-family: "SF Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
     font-weight: 400;
-    font-style: normal;
     font-size: 14px;
     line-height: 140%;
-    letter-spacing: 0;
-    color: #FFFFFF80; /* полупрозрачно бяло */
+    color: #FFFFFF80;
     margin: 0 0 16px;
   }
 
-  /* Chip style */
+  /* Chip */
   .chip {
     display:inline-flex;
     align-items:center;
@@ -101,7 +97,7 @@
     height:16px;
   }
 
-  /* Top row overlay */
+  /* Top row */
   .top-row {
     position: absolute;
     top: 20px;
@@ -158,6 +154,26 @@
       border: none;
     }
 
+    /* Показваме мобилната снимка, скриваме десктопската */
+    .hero-img--desktop {
+      display: none;
+    }
+	
+
+    .hero-img--mobile {
+      display: block;
+ object-position: center -80px; /* повдига фона с 20px нагоре */
+    }
+
+    .hero-title {
+      font-size: 24px;
+    }
+
+    .hero-desc {
+      font-size: 13px;
+    }
+
+    /* Увеличаваме чипа за мобилно */
     .chip {
       font-size: 16px;
       padding: 6px 13px;
@@ -172,16 +188,16 @@
 </style>
 </head>
 <body>
-
   <main class="wrap">
-    <!-- Hero section -->
     <section class="hero">
       <div class="top-row">
         <a class="back" href="work.html" aria-label="Back"></a>
         <a class="contact" href="mailto:valeriia@example.com">Contact me</a>
       </div>
 
-      <img src="img/magic-wheel-detail-clear.jpg" alt="Magic Wheel detail image">
+      <!-- Две версии на изображението -->
+      <img class="hero-img hero-img--desktop" src="img/magic-wheel-detail-clear.jpg" alt="Magic Wheel desktop">
+      <img class="hero-img hero-img--mobile" src="img/magic-wheel-detail-mobile.png" alt="Magic Wheel mobile">
 
       <div class="hero-text">
         <h1 class="hero-title">Magic Wheel</h1>
@@ -195,6 +211,5 @@
       </div>
     </section>
   </main>
-
 </body>
 </html>
