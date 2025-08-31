@@ -42,8 +42,8 @@
 
   .wrap{
     max-width:var(--site-max);
-    margin:24px auto 64px;
-    padding:0 24px;
+    margin:45px auto 64px;
+    padding:0 16px;
   }
 
   .top{
@@ -101,7 +101,7 @@
     align-items:center;
     gap:6px;
     font-size:14px;
-    padding:3px 10px;
+    padding:6px 10px;
     border-radius:999px;
     border:1px solid var(--border);
     background:#fff;
@@ -170,6 +170,22 @@
   }
 
   .hidden{ display:none !important; }
+  @media (max-width: 640px) {
+  .filters {
+    gap: 12px;               /* малко повече разстояние между чиповете */
+    padding-bottom: 6px;     /* леко увеличаване на долния падинг */
+  }
+
+  .chip {
+    font-size: 16px;         /* по-голям текст */
+    padding: 8px 14px;       /* по-голяма височина и ширина */
+  }
+
+  .chip img {
+    width: 18px;             /* по-голяма иконка */
+    height: 18px;
+  }
+}
 </style>
 </head>
 <body>
@@ -183,13 +199,13 @@
       <div class="filters" id="filters" aria-label="Project categories">
         <button class="chip is-active" data-filter="all">All</button>
         <button class="chip" data-filter="gambling">
-          <img src="img/gambling.jpg" alt="Gambling">Gambling
+          <img src="img/gambling.png" alt="Gambling">Gambling
         </button>
         <button class="chip" data-filter="fintech">
-          <img src="img/fintech.jpg" alt="Fintech">Fintech
+          <img src="img/fintech.png" alt="Fintech">Fintech
         </button>
         <button class="chip" data-filter="sport">
-          <img src="img/sport.jpg" alt="Sport">Sport
+          <img src="img/sport.png" alt="Sport">Sport
         </button>
       </div>
     </div>
@@ -200,7 +216,7 @@
       <a href="magic-wheel.html" class="card-link">
         <article class="card" data-cat="gambling">
           <div class="card-head"><h3 class="card-title">Magic Wheel</h3></div>
-          <img class="thumb" src="img/test.png" alt="Magic Wheel">
+          <img class="thumb" src="img/magic-wheel.png" alt="Magic Wheel">
         </article>
       </a>
 
@@ -209,20 +225,35 @@
         <img class="thumb" src="img/pyramids-hunter.png" alt="Pyramids Hunter">
       </article>
 
+	<article class="card" data-cat="gambling">
+        <div class="card-head"><h3 class="card-title">Piggly</h3></div>
+        <img class="thumb" src="img/piggly.png" alt="Piggly">
+      </article>
+	  
       <article class="card" data-cat="gambling">
         <div class="card-head"><h3 class="card-title">Blackjack</h3></div>
         <img class="thumb" src="img/blackjack.png" alt="Blackjack">
+      </article>
+	  
+	    <article class="card" data-cat="casual">
+        <div class="card-head"><h3 class="card-title">Candy Saga</h3></div>
+        <img class="thumb" src="img/candy-saga.png" alt="Candy Saga">
+      </article>
+	  
+	    <article class="card" data-cat="casual">
+        <div class="card-head"><h3 class="card-title">Sporta</h3></div>
+        <img class="thumb" src="img/sporta.png" alt="Sporta">
+      </article>
+	  
+	  <article class="card" data-cat="casual">
+        <div class="card-head"><h3 class="card-title">Revalo</h3></div>
+        <img class="thumb" src="img/revalo.png" alt="Revalo">
       </article>
 
       <article class="card" data-cat="casual">
         <div class="card-head"><h3 class="card-title">Dream Land</h3></div>
         <img class="thumb" src="img/dream-land.png" alt="Dream Land">
-      </article>
-
-      <article class="card" data-cat="casual">
-        <div class="card-head"><h3 class="card-title">Candy Saga</h3></div>
-        <img class="thumb" src="img/candy-saga.png" alt="Candy Saga">
-      </article>
+      </article>   
 
       <article class="card" data-cat="casual">
         <div class="card-head"><h3 class="card-title">Color Rush</h3></div>
@@ -233,15 +264,30 @@
         <div class="card-head"><h3 class="card-title">Plinko</h3></div>
         <img class="thumb" src="img/plinko.png" alt="Plinko">
       </article>
-
-      <article class="card" data-cat="fintech">
-        <div class="card-head"><h3 class="card-title">Ball Delux</h3></div>
-        <img class="thumb" src="img/ball-delux-1.png" alt="Ball Delux">
+	  
+	   <article class="card" data-cat="fintech">
+        <div class="card-head"><h3 class="card-title">FootApp</h3></div>
+        <img class="thumb" src="img/foot-app.png" alt="FootApp">
       </article>
 
       <article class="card" data-cat="sport">
-        <div class="card-head"><h3 class="card-title">Ball Delux</h3></div>
-        <img class="thumb" src="img/ball-delux-2.png" alt="Ball Delux Variant">
+        <div class="card-head"><h3 class="card-title">FinPath</h3></div>
+        <img class="thumb" src="img/fin-path.png" alt="FinPath">
+      </article>
+	  
+	   <article class="card" data-cat="fintech">
+        <div class="card-head"><h3 class="card-title">TrackFi</h3></div>
+        <img class="thumb" src="img/track-fi.png" alt="TrackFi">
+      </article>
+	  
+	   <article class="card" data-cat="fintech">
+        <div class="card-head"><h3 class="card-title">Credify</h3></div>
+        <img class="thumb" src="img/credify.png" alt="Credify">
+      </article>
+	  
+	    <article class="card" data-cat="fintech">
+        <div class="card-head"><h3 class="card-title">Plana</h3></div>
+        <img class="thumb" src="img/plana.png" alt="Plana">
       </article>
     </section>
   </main>
@@ -268,4 +314,3 @@
   </script>
 </body>
 </html>
-
