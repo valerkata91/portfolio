@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Pyramids Hunter — Work</title>
+
+<style>
+  :root {
+    --bg:#ffffff;
+    --ink:#0a0a0a;
+    --ink-2:#1d1d1f;
+    --border:#e5e7eb;
+    --site-max:880px;
+    --bg-vector:url('img/background.webp');
+  }
+
+  * {
+    font-family:"SF Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    margin:0; padding:0; box-sizing:border-box;
+  }
+
+  html, body {
+    /* НЕ заключваме страницата – скролът ще работи, когато съдържанието е по-високо */
+    min-height:100%;
+    background:var(--bg);
+    background-image:var(--bg-vector);
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-attachment:fixed; /* ще се изключи на мобилно */
+    color:var(--ink-2);
+    -webkit-text-size-adjust:100%;
+  }
+
+  /* Контейнер */
+  .wrap { max-width:var(--site-max); margin:0 auto 64px; padding:0 16px; }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    margin-top: 0;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+  }
+
+  /* Изображения */
+  .hero-img { width:100%; display:block; }
+  .hero-img--desktop { display:block; }
+  .hero-img--mobile  { display:none; }
+
+  /* Top row (back + contact) */
+  .top-row{
+    position:absolute; top:20px; left:20px; right:20px;
+    display:flex; justify-content:space-between; align-items:center; z-index:2;
+    padding-top: env(safe-area-inset-top);
+  }
+  .back{
+    width:36px; height:36px; border-radius:999px;
+    background:#fff url('img/arrow-work.jpg') center/16px 12px no-repeat;
+    border:1px solid var(--border); display:block;
+  }
+  .contact{
+    background: linear-gradient(96.67deg, #FFFFFF 11.01%, #CFCFCF 91.21%);
+    color:#000; text-decoration:none; border-radius:999px;
+    padding:10px 16px; font-size:14px; font-weight:500; border:1px solid #bfbfbf;
+    display:inline-flex; align-items:center; justify-content:center;
+    box-shadow:0 2px 5px rgba(0,0,0,.1);
+  }
+
+  /* ============ Mobile ============ */
+  @media (max-width:560px){
+    /* фонът на сайта да не „дърпа“ — оставяме scroll */
+    html, body { background-attachment:scroll; background-size:cover; }
+
+    .wrap { margin:0; padding:0; }
+
+    /* На мобилно НЕ използваме background-image върху .hero,
+       а реалното мобилно изображение (ще е по-високо от екрана => скрол!) */
+    .hero{
+      border:none;
+      border-radius:0;
+      overflow:visible;      /* позволяваме нормална височина според съдържанието */
+    }
+
+    .hero-img--desktop { display:none; }
+    .hero-img--mobile  {
+      display:block;
+      width:100%;
+      height:auto;           /* ключово: естествена височина => страницата става по-дълга => скрол */
+    }
+
+    /* по желание – лек градиент отгоре за контраст */
+    .hero::before{
+      content:"";
+      position:absolute; left:0; right:0; top:0; height:120px; z-index:1;
+      background:linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,0));
+      pointer-events:none;
+    }
+    /* overlay бутоните стоят над снимката */
+    .top-row{ z-index: 2; }
+  }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="top-row">
+        <a class="back" href="work.html" aria-label="Back"></a>
+        <a class="contact" href="mailto:valeriia@example.com">Contact me</a>
+      </div>
+
+      <!-- Desktop изображение -->
+      <img class="hero-img hero-img--desktop" src="img/pyramids-hunter-detail-desktop.png" alt="Pyramids Hunter desktop image">
+      <!-- Mobile изображение (високо, скролируемо) -->
+      <img class="hero-img hero-img--mobile" src="img/pyramids-hunter-detail-mobile.png" alt="Pyramids Hunter mobile image">
+    </section>
+  </main>
+</body>
+</html>
