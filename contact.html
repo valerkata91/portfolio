@@ -42,9 +42,7 @@
 
   /* Top row */
   .top-row{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+    display:flex; align-items:center; justify-content:space-between;
     margin-bottom:12px;
   }
   .back{
@@ -58,10 +56,7 @@
 
   /* Desktop grid */
   .grid{
-    display:grid;
-    grid-template-columns:1.08fr 1fr;
-    gap:36px;
-    align-items:start;
+    display:grid; grid-template-columns:1.08fr 1fr; gap:36px; align-items:start;
   }
 
   /* Left: headline (desktop) */
@@ -75,46 +70,39 @@
   }
   .intro h1 .muted{ color:#bfc3c9; font-weight:400; }
 
-  .shake-lg{
-    width:34px;
-    height:34px;
-    vertical-align:middle;
-    transform:translateY(-2px);
-  }
+  .shake-lg{ width:34px; height:34px; vertical-align:middle; transform:translateY(-2px); }
 
-  .info{
-    display:flex;
-    flex-direction:column;
-    gap:24px;
-  }
+  /* ===== Desktop contact list aligned to the very left ===== */
+  .info{ display:flex; flex-direction:column; gap:24px; }
+
+  /* 2-row grid:
+     Row 1: [icon] [label]
+     Row 2: value spans both columns -> flush-left alignment */
   .info-item{
-    display:flex;
-    align-items:flex-start;
-    gap:10px;
-    font-size:18px;
-    color:#6b7280;
+    display:grid;
+    grid-template-columns:18px 1fr;
+    grid-template-rows:auto auto;
+    column-gap:10px;
   }
-  .info-item .label{ color:#6b7280; margin-bottom:4px; }
-  .info-item .value{ color:#000000; font-weight:400; }
-
-  .icon-16{
-    width:18px;
-    height:18px;
-    object-fit:contain;
-    margin-top:2px;
+  .info-item .icon-16{ grid-column:1; grid-row:1; width:18px; height:18px; margin-top:2px; }
+  .info-item .label{ grid-column:2; grid-row:1; color:#6b7280; font-size:18px; }
+  .info-item .value{
+    grid-column:1 / -1;   /* span both columns */
+    grid-row:2;
+    margin-top:6px;
+    color:#000000;
   }
+  .icon-16 {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    margin-top: 2px;
+}
 
   /* Right: social cards (desktop defaults) */
-  .stack{
-    display:flex;
-    flex-direction:column;
-    gap:35px;
-  }
+  .stack{ display:flex; flex-direction:column; gap:35px; }
   .card{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:14px;
+    display:flex; align-items:center; justify-content:space-between; gap:14px;
     padding: 30px 20px 31px 20px;
     border:1px solid var(--border);
     border-radius:var(--card-radius);
@@ -122,127 +110,41 @@
     text-decoration:none;
     transition: box-shadow .15s ease;
   }
-  .card-left{
-    display:flex;
-    align-items:center;
-    gap:14px;
-    min-width:0;
-  }
-  .badge{
-    width:45px;
-    height:45px;
-    border-radius:999px;
-    display:grid;
-    place-items:center;
-    overflow:hidden;
-    flex:0 0 auto;
-  }
-  .badge img{
-    width:45px;
-    height:45px;
-  }
-  .card-title{
-    font-size:18px;
-    font-weight:400;
-    color:#1a1a1a;
-    text-decoration:none;
-    overflow:hidden;
-    text-overflow:ellipsis;
-    white-space:nowrap;
-  }
-  .arrow-out{
-    width:14px;
-    height:14px;
-    flex:0 0 auto;
-    background:url('img/arrow.png') center/contain no-repeat;
-  }
-  .card:hover{
-    box-shadow:0 8px 30px rgba(0,0,0,.06);
-  }
+  .card-left{ display:flex; align-items:center; gap:14px; min-width:0; }
+  .badge{ width:45px; height:45px; border-radius:999px; display:grid; place-items:center; overflow:hidden; flex:0 0 auto; }
+  .badge img{ width:45px; height:45px; }
+  .card-title{ font-size:18px; font-weight:400; color:#1a1a1a; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .arrow-out{ width:14px; height:14px; flex:0 0 auto; background:url('img/arrow.png') center/contain no-repeat; }
+  .card:hover{ box-shadow:0 8px 30px rgba(0,0,0,.06); }
 
   /* MOBILE */
   @media (max-width:560px){
-    .wrap{
-      margin:15px auto 64px;
-      padding:0 16px;
-    }
-    .grid{
-      grid-template-columns:1fr;
-      gap:15px;
-    }
-
-    /* hide big desktop headline on mobile */
+    .wrap{ margin:15px auto 64px; padding:0 16px; }
+    .grid{ grid-template-columns:1fr; gap:15px; }
     .intro h1{ display:none; }
 
-    /* hello card mobile */
     .hello-card{
-      border:1px solid var(--border);
-      background:#fff;
-      border-radius:24px;
-      padding:18px;
-      box-shadow:0 10px 30px rgba(0,0,0,.05);
-      margin-top:6px;
-      text-align:center;
+      border:1px solid var(--border); background:#fff; border-radius:24px;
+      padding:18px; box-shadow:0 10px 30px rgba(0,0,0,.05); margin-top:6px; text-align:center;
     }
-    .hello-icon{
-      width:26px;
-      height:26px;
-      margin:0 auto 8px;
-      display:block;
-    }
-    .hello-text{
-      font-size:22px;
-      color:#000000;
-      line-height:1.5;
-      margin-bottom:14px;
-    }
-    .hello-list{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      align-items:center;
-    }
-    .hello-item{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-size:16px;
-      color: #a3a3a3;
-    }
+    .hello-icon{ width:26px; height:26px; margin:0 auto 8px; display:block; }
+    .hello-text{ font-size:22px; color:#000000; line-height:1.5; margin-bottom:14px; }
+    .hello-list{ display:flex; flex-direction:column; gap:10px; align-items:center; }
+    .hello-item{ display:flex; align-items:center; gap:10px; font-size:16px; color:#a3a3a3; }
 
-    /* Mobile title above social links */
-    .mobile-title{
-      margin:18px 2px 8px;
-      font-size:21px;
-      color:#000000;
-    }
+    .mobile-title{ margin:18px 2px 8px; font-size:21px; color:#000000; }
 
-    /* social cards mobile */
     .stack{ gap:14px; }
-    .card{
-      padding:20px 15px;
-      border-radius:30px;
-    }
-    .badge{
-      width:44px;
-      height:44px;
-    }
-    .badge img{
-      width:45px;
-      height:45px;
-    }
-    .card-title{
-      font-size:16px;
-      font-weight:400;
-      color:#333;
-    }
+    .card{ padding:20px 15px; border-radius:30px; }
+    .badge{ width:44px; height:44px; }
+    .badge img{ width:45px; height:45px; }
+    .card-title{ font-size:16px; color:#333; }
 
     .info{ display:none; }
   }
 
   @media (min-width:561px){
-    .hello-card,
-    .mobile-title{ display:none; }
+    .hello-card, .mobile-title{ display:none; }
   }
 </style>
 </head>
@@ -263,21 +165,18 @@
           you! <img src="img/handshake.png" alt="handshake" class="shake-lg">
         </h1>
 
-        <!-- Desktop contact -->
+        <!-- Desktop contact (now flush-left values) -->
         <div class="info">
           <div class="info-item">
             <img class="icon-16" src="img/mail.png" alt="">
-            <div>
-              <div class="label">Email</div>
-              <div class="value">valgoncharuck@gmail.com</div>
-            </div>
+            <div class="label">Email</div>
+            <div class="value">valgoncharuck@gmail.com</div>
           </div>
+
           <div class="info-item">
             <img class="icon-16" src="img/phone.png" alt="">
-            <div>
-              <div class="label">Phone</div>
-              <div class="value">+380 98 546 8755</div>
-            </div>
+            <div class="label">Phone</div>
+            <div class="value">+380 98 546 8755</div>
           </div>
         </div>
 
