@@ -28,7 +28,7 @@
     background-image:var(--bg-vector);
     background-repeat:no-repeat;
     background-size:contain;
-    background-attachment:fixed;
+    background-attachment:fixed; /* ще се изключи на мобилно */
     color:var(--ink-2);
     -webkit-text-size-adjust:100%;
   }
@@ -109,11 +109,11 @@
   }
 
   .back {
-    width:36px;
-    height:36px;
+    width:45px;
+    height:45px;
     border-radius:999px;
     background:#fff url('img/arrow-work.jpg') center center no-repeat;
-    background-size: 16px 12px;
+    background-size: 20px 15px;
     border:1px solid var(--border);
     display:block;
   }
@@ -143,33 +143,38 @@
 
   /* Mobile styles */
   @media (max-width: 560px) {
+    /* 1) махаме fixed фона, който прави „опашка“ */
+    html, body {
+      background-attachment: scroll;
+      background-size: cover;
+    }
+
     .wrap {
       margin: 0;
       padding: 0;
     }
 
+    /* 2) hero запълва екрана, за да няма празно отдолу */
     .hero {
       border: none;
+      min-height: 100svh;   /* височина = видим екран */
+      position: relative;
+      overflow: hidden;
     }
 
     /* Показваме мобилната снимка, скриваме десктопската */
-    .hero-img--desktop {
-      display: none;
-    }
-	
+    .hero-img--desktop { display: none; }
 
     .hero-img--mobile {
       display: block;
-	  object-position: center -55px; /* повдига фона с 20px нагоре */
+      width: 100%;
+      height: 100%;          /* запълва .hero */
+      object-fit: cover;     /* няма празни зони, изрязва излишното */
+      object-position: center -55px; /* твоето „повдигане“, регулирай при нужда */
     }
 
-    .hero-title {
-      font-size: 24px;
-    }
-
-    .hero-desc {
-      font-size: 13px;
-    }
+    .hero-title { font-size: 24px; }
+    .hero-desc  { font-size: 13px; }
 
     /* Увеличаваме чипа за мобилно */
     .chip {
