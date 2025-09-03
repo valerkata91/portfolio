@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Contact — Valeriia</title>
+
+<style>
+  :root {
+    --bg:#ffffff;
+    --ink:#000000;
+    --ink-2:#000000;
+    --muted:#6b7280;
+    --muted-2:#9ca3af;
+    --border:#e5e7eb;
+    --card-radius:24px;
+    --site-max:880px;
+
+    --body:16.5px;
+    --small:14px;
+
+    --arrow-size:14px;
+    --bg-vector:url('img/background.webp');
+  }
+
+  * { font-family:"SF Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; margin:0; padding:0; box-sizing:border-box; }
+
+  html, body {
+    height:100%;
+    overflow-x:hidden; overflow-y:auto;
+    background:var(--bg) var(--bg-vector) no-repeat fixed;
+    background-size:contain;
+    color:var(--ink-2);
+    line-height:1.45;
+  }
+
+  .wrap {
+    max-width:var(--site-max);
+    margin:45px auto 64px;
+    padding:0 16px;
+  }
+
+  /* Top row */
+  .top-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:12px;
+  }
+  .back{
+    width:36px; height:36px; border-radius:999px;
+    background:#fff url('img/arrow-work.jpg') center center no-repeat;
+    background-size:16px 12px;
+    border:1px solid var(--border);
+    display:block;
+    text-decoration:none;
+  }
+
+  /* Desktop grid */
+  .grid{
+    display:grid;
+    grid-template-columns:1.08fr 1fr;
+    gap:36px;
+    align-items:start;
+  }
+
+  /* Left: headline (desktop) */
+  .intro h1{
+    font-weight:400;
+    font-size:40px;
+    line-height:1.1;
+    letter-spacing:-.01em;
+    color:#0a0a0a;
+    margin:10px 0 50px;
+  }
+  .intro h1 .muted{ color:#bfc3c9; font-weight:400; }
+
+  .shake-lg{
+    width:34px;
+    height:34px;
+    vertical-align:middle;
+    transform:translateY(-2px);
+  }
+
+  .info{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+  }
+  .info-item{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    font-size:18px;
+    color:#6b7280;
+  }
+  .info-item .label{ color:#6b7280; margin-bottom:4px; }
+  .info-item .value{ color:#000000; font-weight:400; }
+
+  .icon-16{
+    width:18px;
+    height:18px;
+    object-fit:contain;
+    margin-top:2px;
+  }
+
+  /* Right: social cards (desktop defaults) */
+  .stack{
+    display:flex;
+    flex-direction:column;
+    gap:35px;
+  }
+  .card{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    padding: 30px 20px 31px 20px;
+    border:1px solid var(--border);
+    border-radius:var(--card-radius);
+    background:#fff;
+    text-decoration:none;
+    transition: box-shadow .15s ease;
+  }
+  .card-left{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    min-width:0;
+  }
+  .badge{
+    width:45px;
+    height:45px;
+    border-radius:999px;
+    display:grid;
+    place-items:center;
+    overflow:hidden;
+    flex:0 0 auto;
+  }
+  .badge img{
+    width:45px;
+    height:45px;
+  }
+  .card-title{
+    font-size:18px;
+    font-weight:400;
+    color:#1a1a1a;
+    text-decoration:none;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+  .arrow-out{
+    width:14px;
+    height:14px;
+    flex:0 0 auto;
+    background:url('img/arrow.png') center/contain no-repeat;
+  }
+  .card:hover{
+    box-shadow:0 8px 30px rgba(0,0,0,.06);
+  }
+
+  /* MOBILE */
+  @media (max-width:560px){
+    .wrap{
+      margin:15px auto 64px;
+      padding:0 16px;
+    }
+    .grid{
+      grid-template-columns:1fr;
+      gap:15px;
+    }
+
+    /* hide big desktop headline on mobile */
+    .intro h1{ display:none; }
+
+    /* hello card mobile */
+    .hello-card{
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:24px;
+      padding:18px;
+      box-shadow:0 10px 30px rgba(0,0,0,.05);
+      margin-top:6px;
+      text-align:center;
+    }
+    .hello-icon{
+      width:26px;
+      height:26px;
+      margin:0 auto 8px;
+      display:block;
+    }
+    .hello-text{
+      font-size:22px;
+      color:#000000;
+      line-height:1.5;
+      margin-bottom:14px;
+    }
+    .hello-list{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      align-items:center;
+    }
+    .hello-item{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:16px;
+      color: #a3a3a3;
+    }
+
+    /* Mobile title above social links */
+    .mobile-title{
+      margin:18px 2px 8px;
+      font-size:21px;
+      color:#000000;
+    }
+
+    /* social cards mobile */
+    .stack{ gap:14px; }
+    .card{
+      padding:20px 15px;
+      border-radius:22px;
+    }
+    .badge{
+      width:44px;
+      height:44px;
+    }
+    .badge img{
+      width:45px;
+      height:45px;
+    }
+    .card-title{
+      font-size:16px;
+      font-weight:400;
+      color:#333;
+    }
+
+    .info{ display:none; }
+  }
+
+  @media (min-width:561px){
+    .hello-card,
+    .mobile-title{ display:none; }
+  }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="top-row">
+      <a class="back" href="index.html" aria-label="Back"></a>
+    </div>
+
+    <section class="grid">
+      <!-- LEFT -->
+      <div class="intro">
+        <!-- Desktop headline -->
+        <h1>
+          Feel free to reach<br>
+          out — <span class="muted">I’d be happy</span><br>
+          to collaborate with<br>
+          you! <img src="img/handshake.png" alt="handshake" class="shake-lg">
+        </h1>
+
+        <!-- Desktop contact -->
+        <div class="info">
+          <div class="info-item">
+            <img class="icon-16" src="img/mail.png" alt="">
+            <div>
+              <div class="label">Email</div>
+              <div class="value">valgoncharuck@gmail.com</div>
+            </div>
+          </div>
+          <div class="info-item">
+            <img class="icon-16" src="img/phone.png" alt="">
+            <div>
+              <div class="label">Phone</div>
+              <div class="value">+380 98 546 8755</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile hello card -->
+        <div class="hello-card">
+          <img src="img/handshake.png" alt="handshake" class="hello-icon">
+          <p class="hello-text">
+            Feel free to reach out — I’d be <br/> happy to collaborate with you!
+          </p>
+          <div class="hello-list">
+            <div class="hello-item">
+              <img class="icon-16" src="img/mail.png" alt="">
+              valgoncharuck@gmail.com
+            </div>
+            <div class="hello-item">
+              <img class="icon-16" src="img/phone.png" alt="">
+              +380 98 546 8755
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="stack">
+        <div class="mobile-title">Find me here</div>
+
+        <a class="card" href="https://t.me/hivaleriia" target="_blank" rel="noopener">
+          <div class="card-left">
+            <span class="badge"><img src="img/telegram.png" alt="Telegram"></span>
+            <div class="card-title">@hivaleriia</div>
+          </div>
+          <span class="arrow-out"></span>
+        </a>
+
+        <a class="card" href="https://linkedin.com/in/valfeelart" target="_blank" rel="noopener">
+          <div class="card-left">
+            <span class="badge"><img src="img/linkedin.png" alt="LinkedIn"></span>
+            <div class="card-title">linkedin.com/in/valfeelart</div>
+          </div>
+          <span class="arrow-out"></span>
+        </a>
+
+        <a class="card" href="https://behance.net/valfeelart" target="_blank" rel="noopener">
+          <div class="card-left">
+            <span class="badge"><img src="img/behance.png" alt="Behance"></span>
+            <div class="card-title">behance.net/valfeelart</div>
+          </div>
+          <span class="arrow-out"></span>
+        </a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
