@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html lang="bg">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Pyramids Hunter — Work</title>
 
 <style>
@@ -15,23 +15,32 @@
     --bg-vector:url('img/background.webp');
   }
 
-  *{font-family:"SF Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;margin:0;padding:0;box-sizing:border-box;}
+  * {
+    font-family:"SF Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
 
-  html, body{
+  html, body {
     min-height:100%;
     background:var(--bg);
     background-image:var(--bg-vector);
     background-repeat:no-repeat;
     background-size:contain;
-    background-attachment:fixed; /* изключваме на мобилно */
+    background-attachment:fixed;
     color:var(--ink-2);
     -webkit-text-size-adjust:100%;
   }
 
-  .wrap{max-width:var(--site-max);margin:0 auto 64px;padding:0 16px;}
+  .wrap {
+    max-width:var(--site-max);
+    margin:0 auto 64px;
+    padding:0 16px;
+  }
 
   /* HERO */
-  .hero{
+  .hero {
     position:relative;
     margin-top:0;
     overflow:hidden;
@@ -39,56 +48,98 @@
     border-radius:20px;
   }
 
-  .hero-img{width:100%;display:block;}
-  .hero-img--desktop{display:block;}
-  .hero-img--mobile{display:none;} /* ще се активира в media query */
+  .hero-img {
+    width:100%;
+    display:block;
+  }
 
-  /* overlay горе */
-  .top-row{
-    position:absolute;top:20px;left:20px;right:20px;
-    display:flex;justify-content:space-between;align-items:center;z-index:2;
+  .hero-img--desktop {
+    display:block;
+  }
+
+  .hero-img--mobile {
+    display:none; /* ще се показва само на мобилно */
+  }
+
+  .top-row {
+    position:absolute;
+    top:20px;
+    left:20px;
+    right:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:2;
     padding-top: env(safe-area-inset-top);
   }
-  .back{
-    width:45px;height:45px;border-radius:999px;
+
+  .back {
+    width:45px;
+    height:45px;
+    border-radius:999px;
     background:#fff url('img/arrow-work.jpg') center/20px 15px no-repeat;
-    border:1px solid var(--border);display:block;
+    border:1px solid var(--border);
+    display:block;
   }
-  .contact{
+
+  .contact {
     background:linear-gradient(96.67deg,#FFFFFF 11.01%,#CFCFCF 91.21%);
-    color:#000;text-decoration:none;border-radius:999px;
-    padding:10px 16px;font-size:14px;font-weight:500;border:1px solid #bfbfbf;
-    display:inline-flex;align-items:center;justify-content:center;
+    color:#000;
+    text-decoration:none;
+    border-radius:999px;
+    padding:10px 16px;
+    font-size:14px;
+    font-weight:500;
+    border:1px solid #bfbfbf;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
     box-shadow:0 2px 5px rgba(0,0,0,.1);
   }
 
   /* ===== MOBILE ===== */
   @media (max-width:560px){
-    html,body{background-attachment:scroll;background-size:cover;}
-    .wrap{margin:0;padding:0;}
+    html,body {
+      background-attachment:scroll;
+      background-size:cover;
+    }
 
-    .hero{
+    .wrap {
+      margin:0;
+      padding:0;
+    }
+
+    .hero {
       border:none;
       border-radius:0;
-      overflow:visible;             /* оставяме естествената височина */
+      overflow:visible;
     }
 
-    /* Скриваме desktop PNG, показваме мобилния SVG */
-    .hero-img--desktop{display:none;}
-    .hero-img--mobile{
+    .hero-img--desktop {
+      display:none;
+    }
+
+    .hero-img--mobile {
       display:block;
       width:100%;
-      height:auto;                  /* SVG се скалира пропорционално и страницата скролва */
+      height:auto;
     }
 
-    /* лек градиент отгоре за контраст под статус бара */
-    .hero::before{
+    .hero::before {
       content:"";
-      position:absolute;left:0;right:0;top:0;height:120px;z-index:1;
+      position:absolute;
+      left:0;
+      right:0;
+      top:0;
+      height:120px;
+      z-index:1;
       background:linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,0));
       pointer-events:none;
     }
-    .top-row{z-index:2;}
+
+    .top-row {
+      z-index:2;
+    }
   }
 </style>
 </head>
@@ -100,11 +151,19 @@
         <a class="contact" href="mailto:valeriia@example.com">Contact me</a>
       </div>
 
-      <!-- Десктоп изображение -->
-      <img class="hero-img hero-img--desktop" src="img/pyramids-hunter-detail-desktop.png" alt="Pyramids Hunter desktop">
+      <!-- Десктоп версия -->
+      <img class="hero-img hero-img--desktop"
+           src="img/pyramids-hunter-detail-desktop.png"
+           alt="Pyramids Hunter desktop"
+           decoding="async"
+           loading="lazy">
 
-      <!-- Мобилно SVG изображение -->
-      <img class="hero-img hero-img--mobile" src="img/Pyramids-Hunter-Detail-mobile.svg" alt="Pyramids Hunter mobile (SVG)">
+      <!-- Мобилна версия с PNG -->
+      <img class="hero-img hero-img--mobile"
+           src="img/pyramids-hunter-detail-mobile.png"
+           alt="Pyramids Hunter mobile"
+           decoding="async"
+           loading="lazy">
     </section>
   </main>
 </body>
