@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="bg">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Magic Wheel — Work</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Pyramids Hunter — Work</title>
 
 <style>
-  :root {
+  :root{
     --bg:#ffffff;
     --ink:#0a0a0a;
     --ink-2:#1d1d1f;
@@ -23,169 +23,123 @@
   }
 
   html, body {
-    height:100%;
+    min-height:100%;
     background:var(--bg);
     background-image:var(--bg-vector);
     background-repeat:no-repeat;
     background-size:contain;
-    background-attachment:fixed; /* ще се изключи на мобилно */
+    background-attachment:fixed;
     color:var(--ink-2);
     -webkit-text-size-adjust:100%;
+    overflow-x:hidden;
   }
 
-  /* Hero */
+  .wrap {
+    max-width:var(--site-max);
+    margin:0 auto;
+    padding:0 16px;
+  }
+
+  /* HERO */
   .hero {
-    position: relative;
-    margin-top: 0;
-    overflow: hidden;
-    border: 1px solid var(--border);
+    position:relative;
+    margin-top:0;
+    overflow:hidden;
+    border:none;           /* махаме бордъра */
+    border-radius:0;       /* махаме закръглени ъгли */
   }
 
   .hero-img {
-    width: 100%;
-    display: block;
+    width:100%;
+    display:block;
+  }
+
+  .hero-img--desktop {
+    display:block;
   }
 
   .hero-img--mobile {
-    display: none;
+    display:none;
   }
 
-  /* Text block */
-  .hero-text {
-    position: absolute;
-    top: 80px;
-    left: 24px;
-    max-width: min(520px, 80%);
-    color: #fff;
-    text-shadow: none;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-  }
-
-  .hero-title {
-    font-weight: 600;
-    font-size: 28px;
-    line-height: 120%;
-    margin: 0 0 8px;
-    color: #FFFFFF;
-  }
-
-  .hero-desc {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 140%;
-    color: #FFFFFF80;
-    margin: 0 0 16px;
-  }
-
-  /* Chip */
-  .chip {
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    font-size:14px;
-    padding:1px 8px;
-    border-radius:999px;
-    border:1px solid var(--border);
-    background:#fff;
-    color:#111;
-  }
-
-  .chip img {
-    width:16px;
-    height:16px;
-  }
-
-  /* Top row */
   .top-row {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    right: 20px;
+    position:absolute;
+    top:20px;
+    left:18px;
+    right:20px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    z-index: 2;
+    z-index:2;
+    padding-top: env(safe-area-inset-top);
   }
 
   .back {
     width:45px;
     height:45px;
     border-radius:999px;
-    background:#fff url('img/arrow-work.jpg') center center no-repeat;
-    background-size: 20px 15px;
+    background:#fff url('img/arrow-work.jpg') center/20px 15px no-repeat;
     border:1px solid var(--border);
     display:block;
   }
 
   .contact {
-    background: linear-gradient(96.67deg, #FFFFFF 11.01%, #CFCFCF 91.21%);
-    color: #000;
-    text-decoration: none;
-    border-radius: 999px;
-    padding: 10px 16px;
-    font-size: 14px;
-    font-weight: 500;
-    border: 1px solid #bfbfbf;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background:linear-gradient(96.67deg,#FFFFFF 11.01%,#CFCFCF 91.21%);
+    color:#000;
+    text-decoration:none;
+    border-radius:999px;
+    padding:12px 16px;
+    font-size:14px;
+    font-weight:500;
+    border:1px solid #bfbfbf;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 2px 5px rgba(0,0,0,.1);
   }
 
-  /* Wrapper */
-  .wrap {
-    max-width:var(--site-max);
-    margin: 0px auto 64px;
-    padding: 0 16px;
-  }
-
-  /* Mobile styles */
-  @media (max-width: 560px) {
-    /* 1) махаме fixed фона, който прави „опашка“ */
-    html, body {
-      background-attachment: scroll;
-      background-size: cover;
+  /* ===== MOBILE ===== */
+  @media (max-width:560px){
+    html,body {
+      background-attachment:scroll;
+      background-size:cover;
     }
 
     .wrap {
-      margin: 0;
-      padding: 0;
+      margin:0;
+      padding:0;
     }
 
-    /* 2) hero запълва екрана, за да няма празно отдолу */
     .hero {
-      border: none;
-      min-height: 100svh;   /* височина = видим екран */
-      position: relative;
-      overflow: hidden;
+      border:none;
+      border-radius:0;
+      overflow:visible;
     }
 
-    /* Показваме мобилната снимка, скриваме десктопската */
-    .hero-img--desktop { display: none; }
+    .hero-img--desktop {
+      display:none;
+    }
 
     .hero-img--mobile {
-      display: block;
-      width: 100%;
-      height: 100%;          /* запълва .hero */
-      object-fit: cover;     /* няма празни зони, изрязва излишното */
-      object-position: center -55px; /* твоето „повдигане“, регулирай при нужда */
+      display:block;
+      width:100%;
+      height:auto;
     }
 
-    .hero-title { font-size: 24px; }
-    .hero-desc  { font-size: 13px; }
-
-    /* Увеличаваме чипа за мобилно */
-    .chip {
-      font-size: 16px;
-      padding: 6px 13px;
-      gap: 8px;
+    .hero::before {
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      top:0;
+      height:120px;
+      z-index:1;
+      background:linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,0));
+      pointer-events:none;
     }
 
-    .chip img {
-      width: 18px;
-      height: 18px;
+    .top-row {
+      z-index:2;
     }
   }
 </style>
@@ -198,20 +152,19 @@
         <a class="contact" href="mailto:valeriia@example.com">Contact me</a>
       </div>
 
-      <!-- Две версии на изображението -->
-      <img class="hero-img hero-img--desktop" src="img/magic-wheel-detail-clear.jpg" alt="Magic Wheel desktop">
-      <img class="hero-img hero-img--mobile" src="img/magic-wheel-detail-mobile.png" alt="Magic Wheel mobile">
+      <!-- Десктоп версия -->
+      <img class="hero-img hero-img--desktop"
+           src="img/magic-wheel-detail-desktop.png"
+           alt="Pyramids Hunter desktop"
+           decoding="async"
+           loading="lazy">
 
-      <div class="hero-text">
-        <h1 class="hero-title">Magic Wheel</h1>
-        <p class="hero-desc">
-          A casino-style wheel game featuring color-based betting mechanics, where players
-          predict the outcome segment, spin the wheel, and receive rewards according to the multiplier
-        </p>
-        <span class="chip">
-          <img src="img/gambling.jpg" alt="Gambling"> Gambling
-        </span>
-      </div>
+      <!-- Мобилна версия -->
+      <img class="hero-img hero-img--mobile"
+           src="img/magic-wheel-detail-mobile.png"
+           alt="Pyramids Hunter mobile"
+           decoding="async"
+           loading="lazy">
     </section>
   </main>
 </body>
