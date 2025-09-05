@@ -61,20 +61,21 @@
     cursor:pointer;
     text-decoration:none;
   }
-  .download{
+  .download {
     margin-left:auto;
     display:inline-flex;
     align-items:center;
     gap:8px;
-    padding:10px 14px;
+    padding:10px 16px;
     border-radius:999px;
-    border:1px solid #d7d7d9;
-    background:#0f0f10;
-    color:#fff;
-    text-decoration:none;
-    font-weight:600;
     font-size:14px;
+    color:#fff;
+    background:linear-gradient(275.35deg,#000000 3.54%,#292C31 95.44%);
+    text-decoration:none;
+    transition:opacity .15s ease;
+    border:none;
   }
+  .download:hover { opacity:.85; }
   .download img{width:20px;height:20px;display:block}
 
   .title{font-size:44px;line-height:1.1;letter-spacing:-.02em;color:#0b0b0b;margin:8px 0 6px}
@@ -93,12 +94,8 @@
   }
   .card h3 img{width:20px;height:20px;object-fit:contain}
   .dim{color:#b6b6bb}
-  .mono{
-  font-variant-numeric: tabular-nums;
-  color:#b6b6bb;
-}
+  .mono{font-variant-numeric: tabular-nums;color:#b6b6bb}
 
-  /* ====== MATCH index.html CARD-FOOTER BEHAVIOR ====== */
   .card.is-row{
     display:flex;
     align-items:center;
@@ -114,7 +111,6 @@
     white-space:nowrap;
   }
 
-  /* Fancy link with arrow (same as index) */
   .link{
     font-size:17px;
     font-weight:400;
@@ -144,7 +140,7 @@
 
   .badges{display:flex;gap:10px;flex-wrap:wrap}
 
-  /* ---------- Tools card icons ---------- */
+  /* Tools card icons */
   .card-tools{position:relative}
   .card-tools .badges{
     position:absolute;
@@ -155,12 +151,13 @@
   .card-tools .badge{border:none;padding:0;background:transparent}
   .card-tools .badge img{width:28px;height:28px;display:block}
 
-  /* ---------- Design Skills grid ---------- */
+  /* Design Skills grid */
   .skills-grid{
     display:grid;
     grid-template-columns: 1fr 1fr;
     gap:28px;
     align-items:start;
+	margin-top: -10px;
   }
   .skills-grid ul{
     list-style: disc;
