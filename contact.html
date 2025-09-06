@@ -124,7 +124,8 @@
 <body>
   <main class="wrap">
     <div class="top-row">
-      <a class="back" href="index.html" aria-label="Back"></a>
+      <!-- Smart Back: default to index.html, upgraded by JS when possible -->
+      <a class="back" href="index.html" id="backBtn" aria-label="Back"></a>
     </div>
 
     <section class="grid">
@@ -200,5 +201,38 @@
       </div>
     </section>
   </main>
+
+  <!-- Smart back script (robust) -->
+  <script>
+  (function () {
+    const back = document.getElementById('backBtn');
+    const ref = document.referrer;
+
+    function sameOrigin(u) {
+      try { return new URL(u).origin === location.origin; } catch(e) { return false; }
+    }
+
+    back.addEventListener('click', function (e) {
+      // 1) If there is real history, use it
+      if (history.length > 1) {
+        e.preventDefault();
+        history.back();
+        return;
+      }
+      // 2) If no history (e.g., opened in new tab) but we have a same-site referrer, go there
+      if (ref && sameOrigin(ref)) {
+        e.preventDefault();
+        location.href = ref;
+        return;
+      }
+      // 3) Else, let the default href=index.html work
+    });
+
+    // Also set href to referrer so long-press / copy link uses the right URL when available
+    if (ref && sameOrigin(ref)) {
+      back.href = ref;
+    }
+  })();
+  </script>
 </body>
 </html>
