@@ -25,7 +25,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-size:17.5px;
+    font-size:16.5px;
   }
 
   html, body {
@@ -62,7 +62,7 @@
     text-decoration:none;
   }
 
-  /* Download button — DESKTOP (exactly as before) */
+  /* Download button — desktop pill */
   .download {
     margin-left:auto;
     display:inline-flex;
@@ -88,7 +88,7 @@
     border:1px solid var(--border);
     border-radius:var(--radius);
     padding:26px 24px;
-    margin:18px 0;
+    margin:24px 0; /* equal spacing desktop */
     position:relative;
   }
   .card h3{
@@ -97,7 +97,7 @@
   }
   .card h3 img{width:20px;height:20px;object-fit:contain}
   .dim{color:#b6b6bb}
-  .mono{font-variant-numeric:tabular-nums;color:#b6b6bb}
+  .mono{font-variant-numeric: tabular-nums;color:#b6b6bb}
 
   .card.is-row{
     display:flex;
@@ -105,7 +105,7 @@
     justify-content:space-between;
     gap:16px;
   }
-  .card-content{min-width:0;flex:1}
+  .card-content{min-width:0; flex:1}
   .card-footer{
     margin-top:6px;
     display:flex;
@@ -138,7 +138,7 @@
 
   ul{margin:10px 0 0;padding-left:18px}
   li{margin:6px 0}
-  li::marker{font-size:0.7em;color:#555} /* smaller bullets desktop */
+  li::marker{ font-size:0.7em; color:#555; }
 
   .row{display:flex;gap:28px;flex-wrap:wrap}
   .col{flex:1 1 420px}
@@ -158,21 +158,21 @@
   /* Design Skills grid */
   .skills-grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap:28px;
     align-items:start;
     margin-top:-10px;
   }
   .skills-grid ul{
-    list-style:disc;
+    list-style: disc;
     margin:0;
     padding-left:18px;
     line-height:1.6;
   }
 
-  .graphic-mobile{display:none}
-  .graphic-desktop{display:block}
-  .mobile-icons{display:none}
+  .graphic-mobile{ display:none; }
+  .graphic-desktop{ display:block; }
+  .mobile-icons{ display:none; }
 
   @media print{
     .back,.download{display:none}
@@ -183,58 +183,62 @@
 
   /* Mobile overrides */
   @media (max-width:560px){
-    .wrap{margin:15px auto 64px;padding:0 12px}
+    .wrap{ margin:15px auto 64px; padding:0 16px; }
 
-    .title{font-size:28px;margin:2px 0 6px;letter-spacing:-.01em}
-    .subtitle{font-size:15px;margin-bottom:16px;color:#1a1a1a}
+    .title{ font-size:28px; margin:2px 0 6px; letter-spacing:-.01em; }
+    .subtitle{ font-size:15px; margin-bottom:16px; color:#1a1a1a; }
 
-    .card{padding:16px;margin:12px 0;border-radius:18px;margin-bottom: 20px;}
-    .card h3{font-size:13px;margin-bottom:8px;letter-spacing:.08em;color:#b6b6bb;gap:8px}
-    .card h3 img{width:18px;height:18px}
-
-    ul{margin-top:6px;padding-left:16px}
-    li{margin:4px 0 6px}
-    li::marker{font-size:0.6em;color:#666} /* smaller bullets mobile */
-
-    .card.is-row{flex-direction:column;align-items:flex-start;gap:8px}
-    .card-footer{width:100%;justify-content:flex-start;margin-top:4px}
-    .card-footer .link{font-size:16px}
-
-    /* Download button — MOBILE (round icon only, text hidden) */
-    .download{
-      width:40px;height:40px;border-radius:50%;
-      padding:0;background:#1c1c1c;
-      display:flex;align-items:center;justify-content:center;
-      margin-left:auto;gap:0;font-size:0; /* hides the text */
+    .card{
+      padding:20px;       /* more breathing room inside */
+      margin:20px 0;      /* equal space top/bottom */
+      border-radius:18px;
+	  padding: 26px 22px;
     }
-    .download img{width:20px;height:20px}
+    .card h3{ font-size:13px; margin-bottom:12px; letter-spacing:.08em; color:#b6b6bb; gap:8px; }
+    .card h3 img{ width:18px; height:18px; }
+
+    ul{ margin-top:6px; padding-left:16px; }
+    li{ margin:4px 0 6px; }
+    li::marker{ font-size:0.6em; color:#666; }
+
+    .card.is-row{ flex-direction:column; align-items:flex-start; gap:8px; }
+    .card-footer{ width:100%; justify-content:flex-start; margin-top:4px; }
+    .card-footer .link{ font-size:16px; }
+
+    /* Download button mobile */
+    .download{
+      width:40px; height:40px; border-radius:50%;
+      padding:0; background:#1c1c1c;
+      display:flex; align-items:center; justify-content:center;
+      margin-left:auto; gap:0; font-size:0;
+    }
+    .download img{ width:20px; height:20px; }
 
     /* Tools icons bottom */
-    .desktop-icons{display:none}
+    .desktop-icons{ display:none; }
     .mobile-icons{
-      display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:14px;
-      padding-left:0;justify-content:flex-start;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px 14px;
+      margin-top:14px;
+      padding-left:18px;
+      justify-content:flex-start;
     }
-    .mobile-icons .badge img{width:40px;height:40px}
+    .mobile-icons .badge img{ width:40px;height:40px; }
 
     /* Design skills single column */
-    .skills-grid{display:block;margin-top:0}
-    .skills-grid ul{padding-left:18px}
-    .skills-grid ul+ul{margin-top:0}
+    .skills-grid{ display:block; margin-top:0; }
+    .skills-grid ul{ padding-left:18px; }
+    .skills-grid ul + ul{ margin-top:0; }
 
     /* Graphic Designer blocks */
-    .graphic-desktop{display:none}
-    .graphic-mobile{display:block}
+    .graphic-desktop{ display:none; }
+    .graphic-mobile{ display:block; }
     .graphic-mobile p{
-      margin:0 0 6px;font-size:15px;line-height:1.4;white-space:normal;
+      margin:0 0 6px; font-size:15px; line-height:1.4; white-space:normal;
     }
     .graphic-mobile .mono{
-      color:#b6b6bb;margin-left:6px;white-space:nowrap;
-    }
-	    html, body {
-        background: #F9F9F9;
-        background-image: none;
-        background-attachment: scroll;
+      color:#b6b6bb; margin-left:6px; white-space:nowrap;
     }
   }
 </style>
@@ -243,7 +247,6 @@
   <main class="wrap">
     <div class="top">
       <a class="back" href="index.html" aria-label="Back"></a>
-      <!-- Desktop: pill with text; Mobile: round icon-only (text hidden via font-size:0) -->
       <a class="download" href="Valeriia_Honcharuk_UIUX_CV.pdf" download>
         <img src="img/download.png" alt="Download">
         Download CV
