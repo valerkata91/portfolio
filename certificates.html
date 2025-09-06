@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Valeriia Honcharuk — Certificates</title>
+
+<style>
+  :root{
+    --bg:#ffffff;
+    --border:#e5e7eb;
+    --site-max:880px;
+    --bg-vector:url('img/background.webp');
+  }
+
+  *{
+    font-family:"SF Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: var(--bg);
+    background-image: var(--bg-vector);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-attachment: fixed;
+    color: var(--ink-2);
+    line-height: 1.45;
+  }
+
+  .wrap{
+    max-width:var(--site-max);
+    margin:45px auto 64px;
+    padding:0 16px;
+  }
+
+  /* Top bar */
+  .top{display:flex;align-items:center;gap:16px;margin-bottom:28px}
+  .back {
+    width:45px;
+    height:45px;
+    border-radius:999px;
+    background:#fff url(img/arrow-work.jpg) center center no-repeat;
+    background-size:20px 15px;
+    border:1px solid var(--border);
+    display:block;
+    cursor:pointer;
+    text-decoration:none;
+  }
+
+  /* Certificates grid */
+  .certificates{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+  }
+  .certificates img{
+    width:100%;
+    height:auto;
+    border:1px solid var(--border);
+    display:block;
+    background:#fff;
+  }
+
+  @media(max-width:700px){
+    .certificates{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="top">
+      <a class="back" href="cv.html" aria-label="Back"></a>
+    </div>
+
+    <section class="certificates">
+      <img src="img/certificate_mobile_apps_design.png" alt="Certificate — Mobile Apps Design Course">
+      <img src="img/certificate_mobile_interfaces_advanced.png" alt="Certificate — Mobile Interfaces Advanced Course">
+    </section>
+  </main>
+</body>
+</html>
