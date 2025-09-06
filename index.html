@@ -196,6 +196,10 @@
       flex-direction:column;
       align-items:flex-start;
       gap:10px;
+      /* make the whole card feel tappable */
+      cursor:pointer;
+      -webkit-tap-highlight-color:transparent;
+      touch-action:manipulation;
     }
     .card-footer {
       width:100%;
@@ -236,7 +240,7 @@
     </section>
 
     <!-- Card 1: Work -->
-    <section class="card">
+    <section class="card" data-href="work.html">
       <div class="card-content">
         <p class="label">Explore my work</p>
         <p class="text">
@@ -250,7 +254,7 @@
     </section>
 
     <!-- Card 2: Skills -->
-    <section class="card">
+    <section class="card" data-href="cv.html">
       <div class="card-content">
         <p class="label">What I’m good at</p>
         <p class="text">
@@ -265,5 +269,45 @@
       </div>
     </section>
   </main>
+
+  <!-- Mobile-only: make whole card clickable -->
+  <script>
+  (function () {
+    const mq = window.matchMedia('(max-width:560px)');
+
+    function bindCards() {
+      if (!mq.matches) return; // only on mobile
+      document.querySelectorAll('.card[data-href]').forEach(card => {
+        // Accessibility
+        card.setAttribute('role','link');
+        card.setAttribute('tabindex','0');
+
+        // Click anywhere except an inner <a> (let anchors work normally)
+        card.addEventListener('click', e => {
+          if (e.target.closest('a')) return;
+          const url = card.dataset.href;
+          if (url) location.href = url;
+        });
+
+        // Keyboard support
+        card.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            const url = card.dataset.href;
+            if (url) location.href = url;
+          }
+        });
+      });
+    }
+
+    bindCards();
+    // Re-bind if viewport crosses the threshold
+    if (mq.addEventListener) {
+      mq.addEventListener('change', bindCards);
+    } else if (mq.addListener) {
+      mq.addListener(bindCards);
+    }
+  })();
+  </script>
 </body>
 </html>
