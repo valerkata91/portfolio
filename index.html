@@ -23,7 +23,6 @@
     --arrow-src:url('img/arrow.png');
     --bg-vector:url('img/background.webp');
 
-    /* Размер на аватара */
     --avatar-size:120px;
   }
 
@@ -51,39 +50,41 @@
   }
 
   .btn-pill {
-    display: inline-flex;
-  align-items: center;
-  padding: 10px 16px;
-  border-radius: 999px;
-  font-size: var(--small);
-  color: #fff;
-  background: linear-gradient(275.35deg, #000000 3.54%, #292C31 95.44%);
-  text-decoration: none;
-  transition: opacity .15s ease;
+    display:inline-flex;
+    align-items:center;
+    padding:10px 16px;
+    border-radius:999px;
+    font-size:var(--small);
+    color:#fff;
+    background:linear-gradient(275.35deg,#000000 3.54%,#292C31 95.44%);
+    text-decoration:none;
+    transition:opacity .15s ease;
   }
   .btn-pill:hover { opacity:.85; }
 
   /* Header */
-.header {
-  display: grid;
-  grid-template-columns: var(--avatar-size) 1fr;
-  gap: 18px;
-  align-items: center; /* центрира и аватара, и текста по височина */
-  margin: 6px 0 10px;
-}
+  .header {
+    display:grid;
+    grid-template-columns:var(--avatar-size) 1fr;
+    gap:18px;
+    align-items:center;
+    margin:6px 0 10px;
+  }
 
-  /* АВАТАР – изрязан като детелина чрез SVG clipPath */
-  .avatar-svg {
+  /* AVATAR: simple circle */
+  .avatar {
     width:var(--avatar-size);
     height:var(--avatar-size);
+    border-radius:50%;
     display:block;
+    object-fit:cover;
   }
 
   .header-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* центрира текста и бутона вертикално */
-}
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
 
   .header-top {
     display:flex;
@@ -169,15 +170,10 @@
       text-align:left;
     }
 
-    /* Аватарът става втори на мобилно */
-    .avatar-svg {
-  width: var(--avatar-size);
-  height: var(--avatar-size);
-  display: block;
-  order: 2;
-}
+    /* Bigger avatar on mobile */
+    :root { --avatar-size:132px; }
 
-    :root { --avatar-size:132px; } /* по-голям аватар на мобилни */
+    .avatar { order:2; }
 
     .header .role {
       order:3;
@@ -196,7 +192,6 @@
 
     .wave-icon { width:26px; height:26px; }
 
-    /* Картите на мобилно – линкът под текста */
     .card {
       flex-direction:column;
       align-items:flex-start;
@@ -210,10 +205,10 @@
     .card-footer .link {
       font-size:16px;
     }
-	  .wrap {
-    margin: 15px auto 64px; /* вместо 45px горен маргин */
-    padding: 0 16px;        /* запазва падинга за вътрешно отстояние */
-  }
+    .wrap {
+      margin:15px auto 64px;
+      padding:0 16px;
+    }
   }
 </style>
 </head>
@@ -222,22 +217,8 @@
   <main class="wrap">
     <!-- Hero -->
     <section class="header">
-      <!-- SVG с клип път (4 кръга). Снимката се изрязва по формата -->
-      <svg viewBox="0 0 100 100" class="avatar-svg" aria-label="Valeriia avatar">
-        <defs>
-          <clipPath id="clover">
-            <circle cx="30" cy="30" r="30" />
-            <circle cx="70" cy="30" r="30" />
-            <circle cx="30" cy="70" r="30" />
-            <circle cx="70" cy="70" r="30" />
-          </clipPath>
-        </defs>
-        <!-- сложи своя аватар тук -->
-        <image href="img/avatar.png"
-               x="0" y="0" width="100" height="100"
-               preserveAspectRatio="xMidYMid slice"
-               clip-path="url(#clover)"/>
-      </svg>
+      <!-- Simple circle avatar -->
+      <img src="img/avatar.png" alt="Valeriia avatar" class="avatar">
 
       <div class="header-content">
         <div class="header-top">
@@ -254,7 +235,21 @@
       </div>
     </section>
 
-    <!-- Card 1: Skills -->
+    <!-- Card 1: Work -->
+    <section class="card">
+      <div class="card-content">
+        <p class="label">Explore my work</p>
+        <p class="text">
+          Designing intuitive fintech platforms,<br>
+          engaging sports apps & casual games
+        </p>
+      </div>
+      <div class="card-footer">
+        <a class="link" href="work.html">Explore my work</a>
+      </div>
+    </section>
+
+    <!-- Card 2: Skills -->
     <section class="card">
       <div class="card-content">
         <p class="label">What I’m good at</p>
@@ -267,20 +262,6 @@
       </div>
       <div class="card-footer">
         <a class="link" href="cv.html">My CV</a>
-      </div>
-    </section>
-
-    <!-- Card 2: Work -->
-    <section class="card">
-      <div class="card-content">
-        <p class="label">Explore my work</p>
-        <p class="text">
-          Designing intuitive fintech platforms,<br>
-          engaging sports apps & casual games
-        </p>
-      </div>
-      <div class="card-footer">
-        <a class="link" href="work.html">Explore my work</a>
       </div>
     </section>
   </main>
